@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şikayet ve İstek Sitesi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+        h1 {
+            text-align: center;
+            color: #4facfe;
+            font-weight: 700;
+        }
+        p {
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="password"], textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: calc(100% - 22px);
+        }
+        input[type="submit"] {
+            padding: 10px;
+            background-color: #4facfe;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #00f2fe;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="loginContainer">
+        <h1>Giriş Yap</h1>
+        <p>Şikayetleriniz ve istekleriniz bizim için önemlidir</p>
+        <form id="loginForm">
+            <label for="username">Instagram Kullanıcı Adı:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Şifre:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <input type="submit" value="Giriş Yap">
+        </form>
+    </div>
+
+    <div class="container hidden" id="requestContainer">
+        <h1>Şikayet / İstek</h1>
+        <p>Şikayetleriniz ve istekleriniz bizim için önemlidir</p>
+        <form id="requestForm">
+            <label for="request">Şikayet veya İstek:</label>
+            <textarea id="request" name="request" rows="4" required></textarea>
+            
+            <input type="submit" value="Gönder">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('loginContainer').classList.add('hidden');
+            document.getElementById('requestContainer').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
